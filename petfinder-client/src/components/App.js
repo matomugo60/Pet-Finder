@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import './App.css';
 import Login from './Login';
-// import Register from './Register';
+import Register from './Register';
 import PetList from './PetList';
 import AddPet from './AddPet';
 import EditPet from './EditPet';
@@ -50,9 +50,9 @@ function App() {
           <Route path="/login">
             <Login setUser={setUser} />
           </Route>
-          {/* <Route path="/register">
+          <Route path="/register">
             <Register setUser={setUser} />
-          </Route> */}
+          </Route>
           <Route exact path="/pets">
             <PetList user={user} />
           </Route>
