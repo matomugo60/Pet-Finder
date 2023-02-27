@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+// import { Switch } from 'react-router-dom';
+
 import './App.css';
 import Login from './Login';
-import Register from './Register';
+// import Register from './Register';
 import PetList from './PetList';
 import AddPet from './AddPet';
 import EditPet from './EditPet';
@@ -44,13 +46,13 @@ function App() {
           </ul>
         </nav>
 
-        <Switch>
+        
           <Route path="/login">
             <Login setUser={setUser} />
           </Route>
-          <Route path="/register">
+          {/* <Route path="/register">
             <Register setUser={setUser} />
-          </Route>
+          </Route> */}
           <Route exact path="/pets">
             <PetList user={user} />
           </Route>
@@ -66,7 +68,7 @@ function App() {
           <Route path="/">
             <h1>Welcome to Petfinder</h1>
           </Route>
-        </Switch>
+        
       </Router>
     </div>
   );
