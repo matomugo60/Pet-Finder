@@ -15,16 +15,16 @@ class ApplicationController < Sinatra::Base
             )
           if user.valid?
             session[:user_id] = user.id
-            { message: "User created successfully" }.to_json
+            { message: "User created!" }.to_json
           else
             { error: user.errors.full_messages }.to_json
           end
         rescue ActiveRecord::RecordNotUnique => e
-          { error: "Email address already registered" }.to_json
+          { error: "Email address is in use" }.to_json
         rescue ActiveRecord::RecordInvalid => e
           { error: e.record.errors.full_messages.join(", ") }.to_json
         rescue => e
-          { error: "Regestration failed" }.to_json
+          { error: "Failed" }.to_json
         end
       end
 
@@ -33,16 +33,16 @@ class ApplicationController < Sinatra::Base
         user = User.find_by(email: params[:email])
         if user && user.authenticate(params[:password])
           session[:user_id] = user.id
-          { message: "Logged in successfully" }.to_json
+          { message: "Successfull" }.to_json
         else
-          { error: "Invalid email or password" }.to_json
+          { error: "Wrong email or password" }.to_json
         end
       end
 
 
       post "/user/logout" do
         session[:user_id] = nil
-        { message: "Logout successfully" }.to_json
+        { message: "Logged out" }.to_json
       end
 
 
@@ -57,12 +57,12 @@ class ApplicationController < Sinatra::Base
               user_id: user.id,
             )
           if pet.valid?
-            { message: "Pet added successfully" }.to_json
+            { message: "New pet added " }.to_json
           else
             { error: "Failed to add pet" }.to_json
           end
         else
-          { error: "You must be logged in to add a pet" }.to_json
+          { error: "Log in to add a pet" }.to_json
         end
       end
 
@@ -79,7 +79,7 @@ class ApplicationController < Sinatra::Base
           pets = user.pets
           pets.to_json
         else
-          { error: "You must be logged in to view your pets" }.to_json
+          { error: "Log in to view your pets" }.to_json
         end
       end
 
@@ -107,7 +107,7 @@ class ApplicationController < Sinatra::Base
           )
           pet.to_json
         else
-          { error: "You cannot update this pet" }.to_json
+          { error: "Cannot update this pet" }.to_json
         end
       end
 
@@ -116,9 +116,9 @@ class ApplicationController < Sinatra::Base
         pet = Pet.find(params[:id])
         if pet.user_id == session[:user_id]
           pet.destroy
-          { message: "Pet Deleted " }.to_json
+          { message: "Deleted " }.to_json
         else
-          { error: "You cannot delete this pet" }.to_json
+          { error: "Cannot delete this pet" }.to_json
         end
       end
     end

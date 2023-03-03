@@ -1,5 +1,9 @@
 require 'faker'
 
+puts "Deleting old data..."
+Pet.destroy_all
+User.destroy_all
+
 puts "Seeding data..."
 
 animal_terms = ['cat', 'dog', 'bird', 'rabbit', 'hamster']
