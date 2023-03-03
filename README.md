@@ -98,8 +98,10 @@ Install all gems by using:
 Then use this to run
   
         rackup config.ru
+        
           
-          
+ You can view data using (https://localhost:9292)    
+ 
  
 # Author & Licence
 
