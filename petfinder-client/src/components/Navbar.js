@@ -5,6 +5,9 @@ function Navbar() {
   return (
     <nav className='navbar navbar-expand-lg navbar-light bg-secondary'>
       <div className='container'>
+        <Link className='navbar-brand' to='/'>
+          Petfinder
+        </Link>
         <button
           className='navbar-toggler'
           type='button'
@@ -19,7 +22,7 @@ function Navbar() {
         <div className='collapse navbar-collapse' id='navbarNav'>
           <ul className='navbar-nav mr-auto'>
             <li className='nav-item'>
-              <Link className='nav-link' to='/'>
+              <Link className='nav-link' to='/pets'>
                 Pets
               </Link>
             </li>
@@ -30,14 +33,19 @@ function Navbar() {
             </li>
           </ul>
           <ul className='navbar-nav'>
-            <li className='nav-item'>
+            {/* <li className='nav-item'>
               <Link className='nav-link' to='/login'>
                 Log In
               </Link>
-            </li>
+            </li> */}
             <li className='nav-item'>
               <Link className='nav-link' to='/signup'>
                 Register
+              </Link>
+            </li>
+            <li className='nav-item'>
+              <Link className='nav-link' to='/login'>
+                Log Out
               </Link>
             </li>
           </ul>

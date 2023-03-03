@@ -1,35 +1,35 @@
-import React,{useState} from "react";
-import { useNavigate,Link } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 
-function Register({setIsLoggedIn}){
-   const [formData, setFormData] = useState({
-    username:"",
+function Register({ setIsLoggedIn }) {
+  const [formData, setFormData] = useState({
+    username: "",
     firstname: "",
-    lastname:"",  
+    lastname: "",
     email: "",
     password: "",
-    
-
   });
-  let nav = useNavigate();
+  
+  const nav = useNavigate();
 
   function handleChange(e) {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   }
+
   function handleSubmit(e) {
     e.preventDefault();
-        setIsLoggedIn(true)
-        nav("/");
-      
-    }
-    return (
-        <div className="container">
-          <h1 className="text-center mb-4">Sign Up</h1>
+    setIsLoggedIn(true);
+    nav("/");
+  }
 
-          <form onSubmit={handleSubmit} className="row g-3">
+  return (
+    <div className="container">
+      <h1 className="text-center mb-4">Sign Up</h1>
+
+      <form onSubmit={handleSubmit} className="row g-3">
         <div className="form-group mb-2 col-md-6">
           <label htmlFor="firstname">First Name</label>
           <input
@@ -90,17 +90,20 @@ function Register({setIsLoggedIn}){
             value={formData.password}
           />
         </div>
-        <center><button type="submit" className="btn btn-primary mb-4">Submit</button></center>
+        <center>
+          <button type="submit" className="btn btn-primary mb-4">
+             Submit<Link to="/pets">Submit</Link>
+          </button>
+        </center>
 
         <center>
-        <p className="forgot-password text-right">
-          Already registered <Link to="/">Login?</Link>
-        </p>
+          <p className="forgot-password text-right">
+            Already registered <Link to="/login">Login?</Link>
+          </p>
         </center>
       </form>
-      
-        </div>
-    );
+    </div>
+  );
 }
 
-export default Register
+export default Register;

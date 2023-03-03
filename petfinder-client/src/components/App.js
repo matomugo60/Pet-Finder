@@ -29,7 +29,8 @@ export default function App() {
 
 
       <Routes>
-        <Route path="/" element={< PetList />} /> 
+        <Route path="/" element={< Register />} /> 
+        <Route path="/pets" element={<PetList />}/>
         <Route path="/your-pets" element={<UserPetList/>} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Register/>}/>
