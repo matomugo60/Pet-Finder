@@ -20,7 +20,7 @@ function Login() {
   function handleSubmit(e) {
     e.preventDefault();
         
-        nav("/");
+        nav("/pets");
       
     }
 

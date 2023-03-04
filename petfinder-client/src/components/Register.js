@@ -22,7 +22,7 @@ function Register({ setIsLoggedIn }) {
   function handleSubmit(e) {
     e.preventDefault();
     setIsLoggedIn(true);
-    nav("/");
+    nav("/pets");
   }
 
   return (
