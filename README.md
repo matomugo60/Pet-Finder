@@ -100,7 +100,14 @@ Then use this to run
         rackup config.ru
         
           
- You can view data using (https://localhost:9292)    
+ You can view data using (https://localhost:9292) 
+ 
+ 
+ ![Screenshot from 2023-03-06 17-35-05](https://user-images.githubusercontent.com/117737586/223140899-21b1c691-9250-422f-ae4f-b54f751aaf8f.png)
+
+ 
+ 
+ 
  
  
 # Author & Licence
